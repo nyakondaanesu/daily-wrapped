@@ -1,4 +1,6 @@
-const Navbar = () => {
+import { auth } from "@/auth";
+const Navbar = async () => {
+  const session = await auth();
   return (
     <>
       <header className="flex justify-between items-center mx-auto bg-black/30 backdrop-blur-sm shadow-sm z-50 ">
@@ -15,8 +17,13 @@ const Navbar = () => {
         </div>
 
         <div className="flex items-center justify-center mr-4">
-          <button className="bg-white rounded-lg text-black p-1 px-3">
-            Login
+          <button className="bg-spotifyGreen rounded-full ">
+            <img
+              src={session?.user?.image as any}
+              width={48}
+              className="rounded-full p-1"
+              alt="spotify profile image"
+            />
           </button>
         </div>
       </header>

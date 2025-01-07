@@ -1,6 +1,16 @@
-import Image from "next/image";
+import { auth, signIn } from "@/auth";
 
-export default function Home() {
+import Image from "next/image";
+import { redirect } from "next/navigation";
+export default async function Home() {
+  const session = await auth();
+
+  if (session?.user) {
+    console.log(session?.user);
+    redirect("/top-artists");
+    return <> redirecting ...</>;
+  }
+
   return (
     <>
       <main className="bg-bannerImg bg-cover h-dvh">
@@ -33,16 +43,23 @@ export default function Home() {
             uncover trends in your music taste.
             <br /> Get personalized insights to enhance your music experience.
             <h4 />
-            <button className="flex items-center font-futuraThin rounded-full bg-white/80 text-black p-3 my-14 hover:bg-spotifyGreen/60 hover:text-white">
-              login with Spotify
-              <img
-                width="25"
-                height="24"
-                src="https://img.icons8.com/ios/50/long-arrow-right--v1.png"
-                className="mx-3"
-                alt="long-arrow-right--v1"
-              />
-            </button>
+            <form
+              action={async () => {
+                "use server";
+                await signIn("spotify", { redirectTo: "/top-artists" });
+              }}
+            >
+              <button className="flex items-center font-futuraThin rounded-full bg-white/80 text-black p-3 my-14 hover:bg-spotifyGreen/60 hover:text-white">
+                login with Spotify
+                <img
+                  width="25"
+                  height="24"
+                  src="https://img.icons8.com/ios/50/long-arrow-right--v1.png"
+                  className="mx-3"
+                  alt="long-arrow-right--v1"
+                />
+              </button>
+            </form>
           </div>
         </div>
       </main>

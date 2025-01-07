@@ -1,6 +1,12 @@
+import { auth } from "@/auth";
+import { redirect } from "next/navigation";
 import Navbar from "./_components/navbar";
 
-const TopArtistPage = () => {
+const TopArtistPage = async () => {
+  const session = await auth();
+  if (!session?.user) {
+    redirect("/");
+  }
   return (
     <>
       <Navbar></Navbar>
