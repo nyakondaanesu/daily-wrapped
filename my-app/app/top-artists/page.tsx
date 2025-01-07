@@ -1,12 +1,14 @@
 import { auth } from "@/auth";
 import { redirect } from "next/navigation";
 import Navbar from "./_components/navbar";
+import GetTopArtists from "./getTopArtist";
 
 const TopArtistPage = async () => {
   const session = await auth();
   if (!session?.user) {
     redirect("/");
   }
+
   return (
     <>
       <Navbar></Navbar>
@@ -21,6 +23,8 @@ const TopArtistPage = async () => {
           <button className="rounded-lg px-3">6 months</button>
           <button className="rounded-lg px-3 ">12 months</button>
         </div>
+
+        <GetTopArtists />
       </main>
     </>
   );

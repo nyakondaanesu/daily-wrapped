@@ -21,7 +21,7 @@ const Navbar = async () => {
             <img
               src={session?.user?.image as any}
               width={48}
-              className="rounded-full p-1"
+              className="rounded-full border-2 border-spotifyGreen"
               alt="spotify profile image"
             />
           </button>
