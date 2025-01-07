@@ -1,6 +1,25 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import localfont from "next/font/local";
 import "./globals.css";
+
+const futura = localfont({
+  src: [
+    {
+      path: "../public/fonts/futura-bold.ttf",
+    },
+  ],
+  variable: "--font-futura",
+});
+
+const futuraThin = localfont({
+  src: [
+    {
+      path: "../public/fonts/futura-thin.ttf",
+    },
+  ],
+  variable: "--font-futura-thin",
+});
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -24,27 +43,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-bannerImg bg-cover h-dvh`}
-      >
-        <header className="flex justify-between items-center mx-auto bg-black/15 backdrop-blur-sm shadow-sm z-50">
-          <div className="flex items-center my-5 mx-3">
-            <span
-              className="flex justify-center items-center space-x-3"
-              id="logo"
-            >
-              <label htmlFor="logo" className="text-white text-xs font-bold">
-                Daily-Wrap
-              </label>
-            </span>
-          </div>
-
-          <div className="flex items-center justify-center mr-4">
-            <button className="my-1 flex flex-shrink space-x-2 items-center  px-1 py-1 justify-center rounded-full mx-3">
-              <div className=""></div>
-            </button>
-          </div>
-        </header>
+      <body className={`${futura.variable} ${futuraThin.variable}  `}>
         {children}
       </body>
     </html>

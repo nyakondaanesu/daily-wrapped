@@ -13,10 +13,16 @@ export default {
         foreground: "var(--foreground)",
         cinemaYellow: "#faba0c",
         cinemaBlue: "#0a2b24",
+        spotifyGreen: "#66c078",
       },
 
       backgroundImage: {
         bannerImg: "url('/red.jpg')",
+      },
+
+      fontFamily: {
+        futura: ["var(--font-futura)"],
+        futuraThin: ["var(--font-futuraThin)"],
       },
     },
   },
