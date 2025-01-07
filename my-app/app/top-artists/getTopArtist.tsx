@@ -18,11 +18,18 @@ const GetTopArtists = async () => {
   );
 
   const data = await response.json();
-  const topG: Artist = data.items[0];
-  console.log(topG.images[0].url);
 
   const topartist = data.items.map((artist: Artist) => (
-    <li key={artist.id}>{artist.name}</li>
+    <div key={artist.id} className="flex mx-5 md:mx-28 mt-5">
+      <img
+        src={artist.images[0].url}
+        className="bg-spotifyGreen"
+        width={100}
+        alt=""
+      />
+
+      <p className="my-10 mx-10">{artist.name}</p>
+    </div>
   ));
   return topartist;
 };
