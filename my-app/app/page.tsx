@@ -1,16 +1,14 @@
 import { auth, signIn } from "@/auth";
 
-import Image from "next/image";
 import { redirect } from "next/navigation";
 export default async function Home() {
   const session = await auth();
 
   if (session?.user) {
-    console.log(session?.user);
+    console.log(session?.expires);
     redirect("/top-artists");
     return <> redirecting ...</>;
   }
-
   return (
     <>
       <main className="bg-bannerImg bg-cover h-dvh">

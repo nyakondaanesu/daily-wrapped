@@ -2,8 +2,10 @@ import { auth } from "@/auth";
 import { redirect } from "next/navigation";
 import Navbar from "../navbar";
 import Buttons from "./buttons";
-import GetTopArtists from "./GetTopArtists";
+import { useState } from "react";
+import GetTopMedium from "./GetTopMedium";
 import { Suspense } from "react";
+
 const TopArtistPage = () => {
   //don't forget to add the auth function to get the session
 
@@ -26,7 +28,7 @@ const TopArtistPage = () => {
             </div>
           }
         >
-          <GetTopArtists />
+          <GetTopMedium />
         </Suspense>
       </main>
     </>

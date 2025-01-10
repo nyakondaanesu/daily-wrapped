@@ -18,6 +18,7 @@ export default {
 
       backgroundImage: {
         bannerImg: "url('/red.jpg')",
+        nebulaImage: "url('/nebula.jpg')",
       },
 
       fontFamily: {
