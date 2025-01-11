@@ -45,27 +45,6 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${futura.variable} ${futuraThin.variable}  `}>
         {children}
-        <footer>
-          <hr className="border-t border-white mx-6 mt-20 md:mx-20" />
-          <div className="flex items-center my-5 mx-5 md:mx-28 boader ">
-            <span
-              className="flex justify-center items-center space-x-3"
-              id="logo"
-            >
-              <img src="/spotifylogo.png" width={18} alt="" />
-              <label
-                htmlFor="logo"
-                className="text-white text-sm font-bold font-futura"
-              >
-                Daily-Wrap
-              </label>
-            </span>
-          </div>
-
-          <p className="mx-5 md:mx-28 font-light font-futuraThin text-xs">
-            &copy;Anesu's Daily-wrap
-          </p>
-        </footer>
       </body>
     </html>
   );
