@@ -20,7 +20,12 @@ const Navbar = async ({ pageType }: { pageType: string }) => {
 
         <div className="flex items-center justify-center mx-5 md:mx-10 space-x-3">
           <button className="text-sm text-black px-2 py-1 bg-spotifyGreen rounded-full">
-            <Link href="/top-songs"> {pageType}</Link>
+            <Link
+              href={pageType == "Top Artists" ? "/top-artists" : "top-songs"}
+            >
+              {" "}
+              {pageType}
+            </Link>
           </button>
           <button className="bg-spotifyGreen rounded-full ">
             <img
