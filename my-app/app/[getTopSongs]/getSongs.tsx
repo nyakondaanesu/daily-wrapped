@@ -1,5 +1,6 @@
 import { auth, signIn } from "@/auth";
 import { redirect } from "next/navigation";
+import { Session } from "next-auth";
 export const TopSongsLong = async () => {
   type Album = {
     images: any[]; // Array of image URLs
@@ -23,7 +24,7 @@ export const TopSongsLong = async () => {
 
       {
         headers: {
-          Authorization: `Bearer ${(session as any).access_token}`,
+          Authorization: `Bearer ${(session as Session).access_token}`,
         },
       }
     );
@@ -73,7 +74,7 @@ export const TopSongsShort = async () => {
 
       {
         headers: {
-          Authorization: `Bearer ${(session as any).access_token}`,
+          Authorization: `Bearer ${(session as Session).access_token}`,
         },
       }
     );
@@ -123,7 +124,7 @@ export const TopSongsMedium = async () => {
 
       {
         headers: {
-          Authorization: `Bearer ${(session as any).access_token}`,
+          Authorization: `Bearer ${(session as Session).access_token}`,
         },
       }
     );

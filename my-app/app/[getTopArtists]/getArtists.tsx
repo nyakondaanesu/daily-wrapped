@@ -1,11 +1,14 @@
-import { auth, signIn } from "@/auth";
+import { auth } from "@/auth";
 import { redirect } from "next/navigation";
+import { Session } from "next-auth";
+
 export const TopArtistLong = async () => {
   type Artist = {
     name: string;
     id: string;
     images: any[];
   };
+
   const session = await auth();
   if (!session?.user) {
     redirect("/");
@@ -15,7 +18,7 @@ export const TopArtistLong = async () => {
 
       {
         headers: {
-          Authorization: `Bearer ${(session as any).access_token}`,
+          Authorization: `Bearer ${(session as Session).access_token}`,
         },
       }
     );
@@ -54,7 +57,7 @@ export const TopArtistShort = async () => {
 
       {
         headers: {
-          Authorization: `Bearer ${(session as any).access_token}`,
+          Authorization: `Bearer ${(session as Session).access_token}`,
         },
       }
     );
@@ -93,7 +96,7 @@ export const TopArtistMedium = async () => {
 
       {
         headers: {
-          Authorization: `Bearer ${(session as any).access_token}`,
+          Authorization: `Bearer ${(session as Session).access_token}`,
         },
       }
     );
