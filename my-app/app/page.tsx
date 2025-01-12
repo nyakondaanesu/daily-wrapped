@@ -1,6 +1,13 @@
 import { auth, signIn } from "@/auth";
 
 import { redirect } from "next/navigation";
+import { Session } from "next-auth";
+
+declare module "next-auth" {
+  interface Session {
+    access_token?: string;
+  }
+}
 export default async function Home() {
   const session = await auth();
 

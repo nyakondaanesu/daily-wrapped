@@ -1,6 +1,9 @@
 "use server";
 import { auth } from "@/auth";
+import { Image } from "next-auth/providers/42-school";
 import Link from "next/link";
+import { Session } from "next-auth";
+
 const Navbar = async ({ pageType }: { pageType: string }) => {
   const session = await auth();
   return (
@@ -29,7 +32,7 @@ const Navbar = async ({ pageType }: { pageType: string }) => {
           </button>
           <button className="bg-spotifyGreen rounded-full ">
             <img
-              src={session?.user?.image as any}
+              src={session?.user?.image as string}
               width={36}
               className="rounded-full border-2 border-spotifyGreen"
               alt="spotify profile image"
