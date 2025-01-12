@@ -1,9 +1,16 @@
-import { auth, signIn } from "@/auth";
+import { auth } from "@/auth";
 import { redirect } from "next/navigation";
 import { Session } from "next-auth";
+
+declare module "next-auth" {
+  interface Session {
+    access_token?: string;
+  }
+}
+
 export const TopSongsLong = async () => {
   type Album = {
-    images: any[]; // Array of image URLs
+    images: { url: string }[]; // Array of image URLs
   };
 
   type Artist = {
@@ -53,7 +60,7 @@ export const TopSongsLong = async () => {
 
 export const TopSongsShort = async () => {
   type Album = {
-    images: any[]; // Array of image URLs
+    images: { url: string }[]; // Array of image URLs
   };
 
   type Artist = {
@@ -103,7 +110,7 @@ export const TopSongsShort = async () => {
 
 export const TopSongsMedium = async () => {
   type Album = {
-    images: any[]; // Array of image URLs
+    images: { url: string }[]; // Array of image URLs
   };
 
   type Artist = {

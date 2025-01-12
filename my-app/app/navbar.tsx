@@ -1,8 +1,7 @@
 "use server";
 import { auth } from "@/auth";
-import { Image } from "next-auth/providers/42-school";
+
 import Link from "next/link";
-import { Session } from "next-auth";
 
 const Navbar = async ({ pageType }: { pageType: string }) => {
   const session = await auth();

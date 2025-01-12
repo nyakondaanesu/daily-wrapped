@@ -2,11 +2,17 @@ import { auth } from "@/auth";
 import { redirect } from "next/navigation";
 import { Session } from "next-auth";
 
+declare module "next-auth" {
+  interface Session {
+    access_token?: string;
+  }
+}
+
 export const TopArtistLong = async () => {
   type Artist = {
     name: string;
     id: string;
-    images: any[];
+    images: { url: string }[];
   };
 
   const session = await auth();
@@ -29,7 +35,11 @@ export const TopArtistLong = async () => {
       <div key={artist.id} className="flex mx-5 md:mx-28 mt-5">
         <span className="mt-10 mx-5">{index + 1}.</span>
         <img
-          src={artist.images[0].url}
+          src={
+            artist.images && artist.images.length > 0
+              ? artist.images[0].url
+              : ""
+          }
           className="bg-spotifyGreen"
           width={100}
           alt=""
@@ -46,7 +56,7 @@ export const TopArtistShort = async () => {
   type Artist = {
     name: string;
     id: string;
-    images: any[];
+    images: { url: string }[];
   };
   const session = await auth();
   if (!session?.user) {
@@ -85,7 +95,7 @@ export const TopArtistMedium = async () => {
   type Artist = {
     name: string;
     id: string;
-    images: any[];
+    images: { url: string }[];
   };
   const session = await auth();
   if (!session?.user) {
