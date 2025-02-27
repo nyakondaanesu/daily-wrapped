@@ -1,6 +1,5 @@
 import NextAuth from "next-auth";
 import Spotify from "next-auth/providers/spotify";
-import { jwtDecode } from "jwt-decode";
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
   providers: [

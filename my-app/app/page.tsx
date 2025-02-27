@@ -7,7 +7,9 @@ export default async function Home() {
 
   if (session?.user) {
     console.log(session?.expires);
-    redirect("/top-artists");
+    redirect(
+      "https://daily-wrapped-h5kizb1nd-nyakondaanesus-projects.vercel.app/top-artists"
+    );
     return <> redirecting ...</>;
   }
   return (

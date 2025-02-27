@@ -36,7 +36,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${futura.variable} ${futuraThin.variable}  `}>
+      <body className={`${futura.variable} ${futuraThin.variable} bg-black `}>
         {children}
         <footer>
           <hr className="md:mx-28 mt-10 border-zinc-800" />
